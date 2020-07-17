@@ -1,0 +1,52 @@
+
+:root {
+  --web-chat-height: 600px;
+  --web-chat-width: 400px;
+  --web-chat-offset: 30px;
+  --web-chat-title-height: 50px;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  /*background-image: url("https://raw.githubusercontent.com/peurocs4/PythonHomePage/master/Python%20Homepage.png");*/
+  /*background-repeat: no-repeat;*/
+  /*background-position-x: center;*/
+  /*background-size: cover;*/
+}
+
+#pythonHompageImage {
+  width: 100%;
+  min-width: 1500px;
+}
+
+#webchatContainer {
+  position: fixed;
+  top: calc(100% - var(--web-chat-height) - var(--web-chat-offset));
+  right: var(--web-chat-offset);
+  height: var(--web-chat-height);
+  width: var(--web-chat-width);
+  border: solid 3px #3572a5;
+  box-shadow: 0 0 10px 0 black;
+}
+
+#webchatTitle {
+  height: var(--web-chat-title-height);
+  background-color: #3572a5;
+  line-height: var(--web-chat-title-height);
+  font-size: 22px;
+  text-align: center;
+  color: white;
+}
+
+#webchat {
+  height: calc(100% - var(--web-chat-title-height))
+}
