@@ -1,8 +1,12 @@
 
 :root {
+  --web-chat-btn-size: 50px;
+  --web-chat-btn-offset: 30px;
+
   --web-chat-height: 600px;
   --web-chat-width: 400px;
   --web-chat-offset: 30px;
+
   --web-chat-title-height: 50px;
 }
 
@@ -11,7 +15,7 @@ html {
   width: 100%;
   margin: 0;
   scroll-behavior: smooth;
-  /*overflow-y: scroll;*/
+  overflow-y: hidden;
 }
 
 body {
@@ -34,23 +38,64 @@ body {
   margin: 0;
 }
 
+#webchatBtnContainer {
+  position: fixed;
+  top: calc(100% - var(--web-chat-btn-size) - var(--web-chat-btn-offset));
+  right: var(--web-chat-btn-offset);
+  height: var(--web-chat-btn-size);
+  width: var(--web-chat-btn-size);
+  background-color: #3b67b0;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px #3b67b0;
+  animation: pulse 1.5s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #3b67b0;
+  }
+  50% {
+    -webkit-box-shadow: 0 0 20px 5px #577cb0;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 #3b67b0;
+  }
+}
+
+#webchatBtn {
+  height: var(--web-chat-btn-size);
+  width: var(--web-chat-btn-size);
+  border-radius: 50%;
+}
+
 #webchatContainer {
   position: fixed;
   top: calc(100% - var(--web-chat-height) - var(--web-chat-offset));
   right: var(--web-chat-offset);
   height: var(--web-chat-height);
   width: var(--web-chat-width);
-  border: solid 3px #3572a5;
+  /*border: solid 3px  #3572a5;*/
   box-shadow: 0 0 10px 0 black;
 }
 
-#webchatTitle {
+#webchatHeader {
   height: var(--web-chat-title-height);
   background-color: #3572a5;
   line-height: var(--web-chat-title-height);
   font-size: 22px;
   text-align: center;
   color: white;
+}
+
+#webchatTitle {
+  width: 90%;
+}
+
+#webchatCloseBtn {
+  float: right;
+  width: 10%;
+  background-color: red;
+  cursor: pointer;
 }
 
 #webchat {
