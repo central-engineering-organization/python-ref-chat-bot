@@ -11,7 +11,7 @@ html {
   width: 100%;
   margin: 0;
   scroll-behavior: smooth;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
 }
 
 body {
@@ -26,6 +26,12 @@ body {
 #pythonHompageImage {
   width: 100%;
   min-width: 1500px;
+}
+
+#pythonHomepageFrame {
+  width: calc(100% - 4px);
+  height: calc(100% - 2px);
+  margin: 0;
 }
 
 #webchatContainer {
