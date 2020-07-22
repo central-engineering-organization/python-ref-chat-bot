@@ -139,6 +139,11 @@ body {
   width: 10%;
   background-color: red;
   cursor: pointer;
+  opacity: 80%;
+}
+
+#webchatCloseBtn:hover {
+  opacity: 100%;
 }
 
 #webchat {
