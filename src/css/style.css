@@ -1,13 +1,16 @@
 
 :root {
-  --web-chat-btn-size: 50px;
-  --web-chat-btn-offset: 30px;
+  --webchat-btn-size: 50px;
+  --webchat-btn-offset: 40px;
 
-  --web-chat-height: 600px;
-  --web-chat-width: 400px;
-  --web-chat-offset: 30px;
+  --webchat-height: 600px;
+  --webchat-width: 400px;
+  --webchat-offset: 30px;
 
-  --web-chat-title-height: 50px;
+  --webchat-setting-height: calc(var(--webchat-height) - var(--webchat-title-height));
+  --webchat-setting-width: var(--webchat-width);
+
+  --webchat-title-height: 50px;
 }
 
 html {
@@ -21,15 +24,6 @@ html {
 body {
   height: 100%;
   margin: 0;
-  /*background-image: url("https://raw.githubusercontent.com/peurocs4/PythonHomePage/master/Python%20Homepage.png");*/
-  /*background-repeat: no-repeat;*/
-  /*background-position-x: center;*/
-  /*background-size: cover;*/
-}
-
-#pythonHompageImage {
-  width: 100%;
-  min-width: 1500px;
 }
 
 #pythonHomepageFrame {
@@ -40,14 +34,24 @@ body {
 
 #webchatBtnContainer {
   position: fixed;
-  top: calc(100% - var(--web-chat-btn-size) - var(--web-chat-btn-offset));
-  right: var(--web-chat-btn-offset);
-  height: var(--web-chat-btn-size);
-  width: var(--web-chat-btn-size);
+  top: calc(100% - var(--webchat-btn-size) - var(--webchat-btn-offset));
+  right: var(--webchat-btn-offset);
+  height: var(--webchat-btn-size);
+  width: var(--webchat-btn-size);
   background-color: #3b67b0;
   border-radius: 50%;
-  box-shadow: 0 0 10px 5px #3b67b0;
+  -webkit-animation: pulse 1.5s infinite;
+  -moz-animation: pulse 1.5s infinite;
+  -o-animation: pulse 1.5s infinite;
   animation: pulse 1.5s infinite;
+}
+
+#webchatBtnContainer:hover {
+  -webkit-animation: step-start;
+  -moz-animation: step-start;
+  -o-animation: step-start;
+  animation: step-start;
+  box-shadow: 0 0 15px 10px #577cb0;
 }
 
 @-webkit-keyframes pulse {
@@ -61,30 +65,71 @@ body {
     -webkit-box-shadow: 0 0 0 0 #3b67b0;
   }
 }
+@-moz-keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 #3b67b0;
+  }
+  50% {
+    -moz-box-shadow: 0 0 20px 5px #577cb0;
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 #3b67b0;
+  }
+}
+@-o-keyframes pulse {
+  0% {
+    -o-box-shadow: 0 0 0 0 #3b67b0;
+  }
+  50% {
+    -o-box-shadow: 0 0 20px 5px #577cb0;
+  }
+  100% {
+    -o-box-shadow: 0 0 0 0 #3b67b0;
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #3b67b0;
+  }
+  50% {
+    box-shadow: 0 0 20px 5px #577cb0;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #3b67b0;
+  }
+}
 
 #webchatBtn {
-  height: var(--web-chat-btn-size);
-  width: var(--web-chat-btn-size);
+  height: var(--webchat-btn-size);
+  width: var(--webchat-btn-size);
   border-radius: 50%;
 }
 
 #webchatContainer {
   position: fixed;
-  top: calc(100% - var(--web-chat-height) - var(--web-chat-offset));
-  right: var(--web-chat-offset);
-  height: var(--web-chat-height);
-  width: var(--web-chat-width);
+  top: calc(100% - var(--webchat-height) - var(--webchat-offset));
+  right: var(--webchat-offset);
+  height: var(--webchat-height);
+  width: var(--webchat-width);
   /*border: solid 3px  #3572a5;*/
   box-shadow: 0 0 10px 0 black;
 }
 
 #webchatHeader {
-  height: var(--web-chat-title-height);
+  height: var(--webchat-title-height);
   background-color: #3572a5;
-  line-height: var(--web-chat-title-height);
+  line-height: var(--webchat-title-height);
   font-size: 22px;
   text-align: center;
   color: white;
+}
+
+#webchatSettingBtn {
+  float: left;
+  height: calc(100% - 28px);
+  mix-blend-mode: multiply;
+  cursor: pointer;
+  padding: 14px 5px;
 }
 
 #webchatTitle {
@@ -96,8 +141,38 @@ body {
   width: 10%;
   background-color: red;
   cursor: pointer;
+  opacity: 80%;
+}
+
+#webchatCloseBtn:hover {
+  opacity: 100%;
+}
+
+#webchatSettingContainer {
+  position: fixed;
+  z-index: 999;
+  background: #ececec;
+  height: var(--webchat-setting-height);
+  width: var(--webchat-setting-width);
+}
+
+#webchatSetting {
+  padding: 10px;
+  overflow-y: scroll;
+  height: calc(100% - 20px);
+}
+
+#webchatSettingTitle {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+  font: normal bold 22px sans-serif;
 }
 
 #webchat {
-  height: calc(100% - var(--web-chat-title-height))
+  height: calc(100% - var(--webchat-title-height));
+}
+
+.padY10 {
+  padding: 10px 0;
 }
