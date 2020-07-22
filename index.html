@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <link rel="stylesheet" type="text/css" href="src/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
   <script src="src/js/main.js"></script>
+  <script src="src/js/cookies.js"></script>
   <script src="src/js/web_chat.js"></script>
+  <title>Python Function Finder</title>
 </head>
 <body onload="init()">
 
 
-<!--<img id="pythonHompageImage" src="src/resources/images/Python%20Homepage.png">-->
 <iframe id="pythonHomepageFrame" sandbox="allow-scripts" src="https://docs.python.org/3/"></iframe>
 
 <div id="webchatContainer" hidden>
   <div id="webchatHeader">
+    <img id="webchatSettingBtn" onclick="webchatSettingOpen();" src="data:image/png;base64,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" alt="Setting">
     <span id="webchatTitle">Python Function Finder</span>
     <span id="webchatCloseBtn" onclick="webchatClose();">X</span>
+  </div>
+  <div id="webchatSettingContainer" hidden>
+    <div id="webchatSetting">
+      <div id="webchatSettingTitle">Settings</div>
+      <div class="padY10">
+        <label>
+          내 이름:
+          <input type="text" name="webchatUserNameTB" value="ME">
+        </label>
+      </div>
+      <div class="padY10">
+        <label>
+          내 채팅 배경색:
+          <input type="color" name="webchatUserColorCC">
+          <label style="font-size: 12px; color: red;">기본값: #3570A3</label>
+        </label>
+      </div>
+      <div class="padY10">
+        <label>
+          채팅 폰트 크기:
+          <input type="number" name="webchatFontSizeNB" value="12" min="10" max="20">
+        </label>
+      </div>
+      <div class="padY10">
+        <label>
+          <input type="checkbox" name="webchatRememberOpenedCB">
+          창 열림 상태 기억하기
+        </label>
+      </div>
+      <div class="padY10">
+        <input type="button" name="webchatSettingSaveBT" value="저장" onclick="saveSetting();">
+        <input type="button" name="webchatSettingCancelBT" value="취소" onclick="loadSetting();">
+      </div>
+    </div>
   </div>
   <div id="webchat" role="main"></div>
 </div>
 
 <div id="webchatBtnContainer" onclick="webchatOpen();">
-  <img id="webchatBtn" src="src/resources/images/Chatbot%20Icon.png">
+  <img id="webchatBtn" src="src/resources/images/Chatbot%20Icon.png" alt="Webchat">
 </div>
 
 
