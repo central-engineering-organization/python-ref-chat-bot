@@ -2,6 +2,7 @@ class CookieUtil {
   static instance = null;
 
   /**
+   * Singleton design pattern applied
    * @return {null|CookieUtil}
    */
   constructor() {
@@ -14,6 +15,7 @@ class CookieUtil {
   }
 
   /**
+   * Deletes given key
    * @param {string} key
    */
   delete(key) {
@@ -21,6 +23,7 @@ class CookieUtil {
   }
 
   /**
+   * Sets new key/value or modifies old key/value
    * @param {string} key
    * @param {string} value
    * @param {number} expireDays
@@ -32,6 +35,7 @@ class CookieUtil {
   }
 
   /**
+   * Gets the value of the given key
    * @param {string} key
    * @return {string}
    */

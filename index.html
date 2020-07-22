@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" >
 <head>
+  <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="src/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
   <script src="src/js/main.js"></script>
   <script src="src/js/cookies.js"></script>
+  <script src="src/js/setting.js"></script>
   <script src="src/js/web_chat.js"></script>
   <title>Python Function Finder</title>
 </head>
@@ -33,24 +35,27 @@
         <label>
           내 채팅 배경색:
           <input type="color" name="webchatUserColorCC">
-          <label style="font-size: 12px; color: red;">기본값: #3570A3</label>
+          <label style="font-size: 12px; color: #3570a3;">기본값: #3570A3</label>
         </label>
       </div>
       <div class="padY10">
         <label>
           채팅 폰트 크기:
-          <input type="number" name="webchatFontSizeNB" value="12" min="10" max="20">
+          <input type="number" name="webchatFontSizeNB" value="16" min="10" max="30">
         </label>
       </div>
       <div class="padY10">
         <label>
           <input type="checkbox" name="webchatRememberOpenedCB">
-          창 열림 상태 기억하기
+          창 열림 상태 다음에 기억하기
         </label>
       </div>
       <div class="padY10">
-        <input type="button" name="webchatSettingSaveBT" value="저장" onclick="saveSetting();">
+        <input type="button" name="webchatSettingSaveBT" value="저장" onclick="saveSetting(); webchatSettingClose();">
         <input type="button" name="webchatSettingCancelBT" value="취소" onclick="loadSetting();">
+      </div>
+      <div>
+        <label style="font-size: 12px; color: red;">※ 저장 후, 적용을 위해 새로고침을 해주세요!</label>
       </div>
     </div>
   </div>
